@@ -9,8 +9,7 @@ export const App = () => {
   useEffect(() => {
     const config: Phaser.Types.Core.GameConfig = {
       type: Phaser.AUTO,
-      width: '100%',
-      height: '100%',
+      backgroundColor: '#388e3c',
       physics: {
         default: 'arcade',
         arcade: {
@@ -19,14 +18,20 @@ export const App = () => {
         },
       },
       scene: [Main],
+      title: 'React Phaser App',
+      url: 'https://example.com',
+      version: '0.0.1',
       scale: {
         parent: 'game-container',
-        autoCenter: Phaser.Scale.CENTER_HORIZONTALLY,
+        width: 1024,
+        height: 768,
+        mode: Phaser.Scale.FIT,
+        autoCenter: Phaser.Scale.CENTER_BOTH,
       },
     };
 
     new Phaser.Game(config);
   }, []);
 
-  return <Box id={'game-container'} w={'100%'} h={'100%'} />;
+  return <Box id={'game-container'} />;
 };
